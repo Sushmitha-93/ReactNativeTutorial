@@ -1,43 +1,48 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
+  Dimensions,
   StyleSheet,
   Text,
   View,
   SafeAreaView,
   Image,
   TouchableHighlight,
+  Button,
+  Alert,
 } from "react-native";
+
+import{
+useDeviceOrientation,
+useDimensions
+}from "@react-native-community/hooks"
 
 export default function App() {
   console.log("App executed");
+  console.log(Dimensions.get("screen"))
+
+  console.log(useDimensions())
+  console.log(useDeviceOrientation())
 
   const handlePress = () => console.log("Text clicked");
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text numberOfLines={1} selectable={true} onPress={handlePress}>
-        Hello Sushmitha :) Hello Sushmitha :) Hello Sushmitha :) Hello Sushmitha
-        :) Hello Sushmitha :) Hello Sushmitha :)
-      </Text>
-      <TouchableHighlight onPress={() => console.log("Pic on press")}>
-        <Image
-          source={{ uri: "https://picsum.photos/200/300" }}
-          style={styles.image}
-        />
-      </TouchableHighlight>
-      <StatusBar style="auto" />
+      <View style={{backgroundColor:"dodgerblue",width:"100%",height:"50%"}}>
+
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingHorizontal: 10,
-    backgroundColor: "green",
-    alignItems: "center",
-    justifyContent: "center",
+    // flex: 1,
+    // paddingHorizontal: 10,
+    // backgroundColor: "green",
+    // alignItems: "center",
+    // justifyContent: "center",
+    paddingTop: Expo.Constants.statusBarHeight
   },
   image: {
     width: 200,
